@@ -31,3 +31,5 @@ jobs:
       - name: Push image
         run: |
           docker push yutarodocker/nlw_devops:${{ steps.generate_sha.outputs.sha }}
+          docker tag yutarodocker/nlw_devops:${{ steps.generate_sha.outputs.sha }} yutarodocker/nlw_devops:latest
+          docker push yutarodocker/nlw_devops:latest
