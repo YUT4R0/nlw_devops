@@ -33,3 +33,13 @@ jobs:
           docker push yutarodocker/nlw_devops:${{ steps.generate_sha.outputs.sha }}
           docker tag yutarodocker/nlw_devops:${{ steps.generate_sha.outputs.sha }} yutarodocker/nlw_devops:latest
           docker push yutarodocker/nlw_devops:latest
+
+      - name: Update image tag
+        uses: fjogeleit/yaml-update-action@main
+        with:
+          branch: main
+          valueFile: "deploy/values.yaml"
+          propertyPath: "image.tag"
+          value: ${{ steps.generate_sha.outputs.sha }}
+          commitChange: true
+          message: "new: Updated tag in values helm"
