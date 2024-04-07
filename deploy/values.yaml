@@ -2,7 +2,7 @@ replicaCount: 5
 image:
   repository: yutarodocker/nlw_devops
   pullPolicy: Always
-  tag: b6ef10f
+  tag: bb63f78
   port: 3333
 imagePullSecrets: []
 nameOverride: ''
